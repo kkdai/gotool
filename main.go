@@ -47,15 +47,14 @@ func InputStr() string {
 func InputAry(size int) []string {
 	var retAry []string
 	for i := 0; i < size; i++ {
-		val := InputStr()
+		var val string
+		fmt.Printf("%v", &val)
 		if len(val) > 0 {
 			retAry = append(retAry, val)
 		} else {
 			i--
 		}
-
 	}
-
 	return retAry
 }
 
