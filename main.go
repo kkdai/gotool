@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 //GetStr :
@@ -56,4 +57,47 @@ func InputAry(size int) []string {
 	}
 
 	return retAry
+}
+
+//CompareTwoList :
+func CompareTwoList(s, t []string) bool {
+	for i := 0; i < len(t); i++ {
+		found := false
+		for j := 0; j < len(s); j++ {
+			if strings.Compare(t[i], s[j]) == 0 {
+				found = true
+			}
+		}
+		if found == false {
+			return false
+		}
+	}
+	return true
+}
+
+//CompareTwoMap :
+func CompareTwoMap(s, t map[string]bool) bool {
+	for k, _ := range t {
+		if s[k] == false {
+			return false
+		}
+	}
+	return true
+}
+
+//InputMap :
+func InputMap(size int) map[string]bool {
+	m := make(map[string]bool)
+	for i := 0; i < size; i++ {
+		val := InputStr()
+		if len(val) > 0 {
+			// fmt.Println(val)
+			m[val] = true
+		} else {
+			i--
+		}
+
+	}
+
+	return m
 }
